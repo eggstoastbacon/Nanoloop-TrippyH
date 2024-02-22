@@ -22,7 +22,7 @@ Arduino Software Setup
 This process requires a microcontroller. We are using an Arduino microcontroller platform, but the code could be easily ported to other platforms.
 
 
-Hardware Schematic
+Hardware Schematic - See Hardware-Schematic.png
 Notes:
 • The signal coming from the Trippy H Game Boy needs to be split into two mono signals (L and R).
 • The L signal from Trippy H is shown on this schematic and cannot be used for musical output.
@@ -31,7 +31,7 @@ Notes:
 
 
 
-Trippy H Setup
+Trippy H Setup - See TrippyH-Setup.png
 Above you can see the most important parts about setting up the SOUND1 channel in Trippy H for sync output in this situation.
 
 • Add a low C to every odd note (ie. in positions 1, 3, 5, 7, 9, 11, 13 and 15) (hold A on each position and press right on the d-pad).
