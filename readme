@@ -1,0 +1,48 @@
+This code is originally from: Little-Scale: https://little-scale.blogspot.com/2008/11/nanoloop-and-trippy-h-game-boy-camera.html
+
+Overview
+Trippy H is the cool little 'secret' sequencer that is part of the Game Boy Camera cartridge. You can play little loops on it using some of the sound capabilities of the Nintendo Game Boy. You can find more information about Trippy H here and here.
+
+One of the downsides to Trippy H is that you cannot synchronise it with other things, for example two other Game Boy music programs LSDJ and Nanoloop.
+
+This is a method of synchronising Nanoloop with Trippy H; in other words, Trippy H controls the speed of Nanoloop, and Nanoloop plays in time with Trippy H.
+
+
+Limitations
+The idea is as follows: you can pan your indidual notes hard left and hard right in Trippy H. By using one of the audio channels (either L or R) only for sending a regular note on every eighth, it is possible to use this signal as a way of sending synchronisation information to Nanoloop.
+
+This consumes a few resources, as you might imagine.
+• The musical output from Trippy H is limited to mono (ie. the channel that is not being used for sending regular notes for clock data).
+• Every eighth of the Trippy H SOUND1 channel will be occupied by having to send a regular beat to Nanoloop. On the plus side, there is still some musical benefit that can be had from the SOUND1 channel.
+
+Nonetheless, this might not be too high a cost for the ability to synchronise Nanoloop with Trippy H.
+
+
+Arduino Software Setup
+This process requires a microcontroller. We are using an Arduino microcontroller platform, but the code could be easily ported to other platforms.
+
+You can download the code here: http://milkcrate.com.au/_other/downloads/projects/TrippyH_Nano_Sync/GBCAM.zip
+
+
+Hardware Schematic
+Notes:
+• The signal coming from the Trippy H Game Boy needs to be split into two mono signals (L and R).
+• The L signal from Trippy H is shown on this schematic and cannot be used for musical output.
+• The R signal from Trippy H is the signal that is amplified and recorded etc for musical output.
+• A switch can be added from Arduino digital pin 3 to 5V, so that the sync can be interrupted.
+
+
+
+Trippy H Setup
+Above you can see the most important parts about setting up the SOUND1 channel in Trippy H for sync output in this situation.
+
+• Add a low C to every odd note (ie. in positions 1, 3, 5, 7, 9, 11, 13 and 15) (hold A on each position and press right on the d-pad).
+• Pan each note hard left (hold start on each position and press left on the d-pad).
+• Set the duty to option #1.
+• Set the env gain to 15.
+• Set the gate to 7.
+• Set the mod depth to 0.
+• Set the mod freq to 0.
+• Set the loop to an even number.
+
+For any other notes that you play in Trippy H on any channels including SOUND1, it is important to remember to pan hard right. Panning center or left will interfere with the sync.
