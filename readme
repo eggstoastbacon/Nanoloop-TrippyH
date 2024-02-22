@@ -21,8 +21,6 @@ Nonetheless, this might not be too high a cost for the ability to synchronise Na
 Arduino Software Setup
 This process requires a microcontroller. We are using an Arduino microcontroller platform, but the code could be easily ported to other platforms.
 
-You can download the code here: http://milkcrate.com.au/_other/downloads/projects/TrippyH_Nano_Sync/GBCAM.zip
-
 
 Hardware Schematic
 Notes:
